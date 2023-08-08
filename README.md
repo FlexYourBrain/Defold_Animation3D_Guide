@@ -91,9 +91,6 @@ I created a sample project showing how its all setup and included the blender fi
 
 [PLAY THE DEMO](https://flexyourbrain.itch.io/defold3danimationguide)
 
-Please reach out if you have any suggestions or find any errors. Thanks.
-
-Cheers!~
 
 
 ###### Check out [the documentation pages](https://defold.com/learn) for examples, tutorials, manuals and API docs.
