@@ -1,6 +1,6 @@
 # Blender to Defold 3D animation Guide
 
-[![](/docs/DAGuide.png)]()
+[![](/docs/DAGuide.png)](https://github.com/FlexYourBrain/Defold_Animation3D_Guide)
 
 In this guide we will cover exporting 3d animations from blender then setting them up in an animation set in defold. Using Blender(3.6.1) and Defold(1.4.8) glTF format. 
 
@@ -84,7 +84,7 @@ The model is now setup for animation and you can add this model to a collection 
 
 I created a sample project showing how its all setup and included the blender file found in the `docs/_Blender` folder.
 
-[GITHUB PROJECT]()
+[GITHUB PROJECT](https://github.com/FlexYourBrain/Defold_Animation3D_Guide)
 
 [PLAY THE DEMO](https://flexyourbrain.itch.io/defold3danimationguide)
 
