@@ -18,6 +18,9 @@ I have a rigged coffee cup model that's ready for exporting, lets get started. S
 
 In the settings we will make sure to select the following:
 
+![](/docs/exSettings1.png)
+
+
 - Limit the export to Selected Objects instead of the whole scene.
 - +Y Up same as in defold.
 - When it comes to Mesh Data it is really up to your project if you are going to use some of these settings or not. UV's we will definitely need to draw the textures to the model, multiple UV sets are supported in defold with glTF. Normals you may need in the shader for things like lighting. Tangents are not supported at the moment, however I think they may be supported by defold in the near future. Vertex colors are supported in defold and can be accessed in the shader via color attribute ( attribute lowp vec4 color; ).
