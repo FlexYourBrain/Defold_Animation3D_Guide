@@ -37,11 +37,11 @@ Export the mesh and rig to a folder in your 3d project. Next we will move on to 
 
 ![](/docs/blender_NLA.png)
 
-Something to also note is that for glTF exports animation playback speed as fps and should be set in blenders output properties > Frame Rate.
+Something to also note is that glTF exports animation playback speed as fps and should be set in blenders output properties > Frame Rate.
 
 ![](/docs/gltf_fps.png)
 
-** Heed This Warning ** Before exporting the animations its important to make sure to backup your blend file before taking the next steps. The reason why is because glTF exports all actions in the NLA editor and in defold we can only use one animation per file. So this means the next steps we take will be to remove actions other than the single one we are exporting and if you accidentally save the blend file while the actions are not stashed in the NLA editor then if you closed blender you would loose the animations because blender will clean up unused action data-blocks by default. If that did happen you could try to restore to previous backup as blender does make backup files. Making backups of your work before exporting you will insure not losing anything from mistakes.
+** Heed This Warning ** Before exporting the animations its important to make sure to backup your blend file before taking the next steps. The reason why is because glTF exports all actions in the NLA editor and in defold we can only use one animation per file. So this means the next steps we take will be to remove actions other than the single one we are exporting and if you accidentally save the blend file while the actions are not stashed in the NLA editor then if you closed blender you would lose the animations because blender will clean up unused action data-blocks by default. If that did happen you could try to restore to previous backup as blender does make backup files. Making backups of your work before exporting you will insure not losing anything from mistakes.
 
 Ok lets get to exporting an animation. In my coffee cup project I have 4 animations to export and I will begin with the "plating" animation. Starting off by only selecting the skeleton armature then in the NLA editor Shift + Selecting all the actions other than the one I want to export.
 
