@@ -1,0 +1,34 @@
+local fill = "CoffeeCupO_fillup"; local sugar = "CoffeeCupO_sugar"; local plate = "CoffeeCupO_plate"
+local bop = vmath.vector3(1.13); local one = 0.25; local z0 = 0; local script = "/camera#default_camera"
+
+function init(self)
+	
+	msg.post(".", "acquire_input_focus")
+	self.plate = gui.get_node("plate")
+	self.fill = gui.get_node("fill")
+	self.sugar = gui.get_node("sugar")
+	
+end
+
+local function button_press(ani)
+	gui.animate(ani, "scale", bop, gui.EASING_INOUTSINE, one, z0, nil, gui.PLAYBACK_ONCE_PINGPONG)
+end
+
+function on_input(self, action_id, action)
+	
+	if action_id == hash("touch") and action.pressed then
+		if gui.pick_node(self.plate, action.x, action.y) then
+			button_press(self.plate)
+			msg.post(script, "animate", { anim_id = plate})
+		end
+		if gui.pick_node(self.fill, action.x, action.y) then
+			button_press(self.fill)
+			msg.post(script, "animate", { anim_id = fill})
+		end
+		if gui.pick_node(self.sugar, action.x, action.y) then
+			button_press(self.sugar)
+			msg.post(script, "animate", { anim_id = sugar})
+		end
+	end
+	
+end

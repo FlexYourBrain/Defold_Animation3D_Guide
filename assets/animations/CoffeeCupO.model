@@ -1,0 +1,7 @@
+mesh: "/assets/animations/CoffeeCupO.glb"
+material: "/assets/materials/scene.material"
+textures: "/assets/textures/Coffee_CupO_Map.png"
+skeleton: "/assets/animations/CoffeeCupO.glb"
+animations: "/assets/animations/cupOdefold.animationset"
+default_animation: "CoffeeCupO_idle"
+name: "plate"

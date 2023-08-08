@@ -1,0 +1,13 @@
+animations {
+  animation: "/assets/animations/CoffeeCupO_idle.glb"
+}
+animations {
+  animation: "/assets/animations/CoffeeCupO_plate.glb"
+}
+animations {
+  animation: "/assets/animations/CoffeeCupO_fillup.glb"
+}
+animations {
+  animation: "/assets/animations/CoffeeCupO_sugar.glb"
+}
+skeleton: "/assets/animations/CoffeeCupO.glb"

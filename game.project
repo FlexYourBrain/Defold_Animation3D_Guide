@@ -1,0 +1,32 @@
+[bootstrap]
+main_collection = /main/main.collectionc
+render = /render/Basic3D.renderc
+
+[script]
+shared_state = 1
+
+[display]
+width = 1280
+height = 800
+
+[android]
+input_method = HiddenInputField
+package = com.defold.example.basic3d
+
+[project]
+dependencies = 
+title = Defold_Animation3D_Guide
+
+[physics]
+type = 3D
+
+[osx]
+bundle_identifier = com.defold.example.basic3d
+
+[ios]
+bundle_identifier = com.defold.example.basic3d
+
+[html5]
+show_fullscreen_button = 0
+show_made_with_defold = 0
+
