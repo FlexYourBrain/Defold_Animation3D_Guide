@@ -7,6 +7,7 @@ In this guide we will cover exporting 3d animations from blender then setting th
 Some things to note before animating:
 - Single root bone for your armature skeleton.
 - Single animation per file. Defold cannot use exports with more than one animation. For multiple animations we instead use exports that have data from a single animation and we setup an (.animationset) that links each animation export, then it's used in the (.model) > Animations properties.
+- Pre baking animation is not necessary.
 
 ------
 
@@ -23,7 +24,7 @@ In the settings we will make sure to select the following:
 
 - Limit the export to Selected Objects instead of the whole scene.
 - +Y Up same as in defold.
-- When it comes to Mesh Data it is really up to your project if you are going to use some of these settings or not. UV's we will definitely need to draw the textures to the model, multiple UV sets are supported in defold with glTF. Normals you may need in the shader for things like lighting. Tangents are not supported at the moment, however I think they may be supported by defold in the near future. Vertex colors are supported in defold and can be accessed in the shader via color attribute ( attribute lowp vec4 color; ).
+- When it comes to Mesh Data it is really up to your project if you are going to use some of these settings or not. UV's we will definitely need to draw the textures to the model, multiple UV sets are supported in defold with glTF. Normals you may need in the shader for things like lighting and can be accessed in the shader via normal attribute (`attribute mediump vec3 normal;`). Tangents are supported and can be accessed in the shader via tangent attribute (`attribute mediump vec3 tangent;`). Vertex colors are supported in defold and can be accessed in the shader via color attribute ( `attribute mediump vec4 color;` ).
 - Materials we don't need to export because we setup our own materials for use in defold.
 - Armature rest position we just use the 0 frame.
 - We want to use skinning for our animation. Note: when we use skinned animations in defold our model material must be set to world for vertex space and cannot playback in local space.
@@ -40,11 +41,12 @@ Something to also note is that for glTF exports animation playback speed as fps 
 
 ![](/docs/gltf_fps.png)
 
-** Heed This Warning ** Before exporting the animations its important to make sure to backup your blend file before taking the next steps. The reason why is because glTF exports all actions in the NLA editor and in defold we can only use one animation per file. So this means the next steps we take will be to remove actions other than the single one we are exporting and if you accidentally save the blend file while the actions are not stashed in the NLA editor then if you closed blender you would loose the animations because blender will clean up unused action data-blocks by default. If that did happen you could try to restore to previous backup as blender does make backup files. Making backups of your work before exporting you will ensure not loosing anything from mistakes.
+** Heed This Warning ** Before exporting the animations its important to make sure to backup your blend file before taking the next steps. The reason why is because glTF exports all actions in the NLA editor and in defold we can only use one animation per file. So this means the next steps we take will be to remove actions other than the single one we are exporting and if you accidentally save the blend file while the actions are not stashed in the NLA editor then if you closed blender you would loose the animations because blender will clean up unused action data-blocks by default. If that did happen you could try to restore to previous backup as blender does make backup files. Making backups of your work before exporting you will ensure not losing anything from mistakes.
 
 Ok lets get to exporting an animation. In my coffee cup project I have 4 animations to export and I will begin with the "plating" animation. Starting off by only selecting the skeleton armature then in the NLA editor Shift + Selecting all the actions other than the one I want to export.
 
 ![](/docs/selectNLAtracks.png)
+
  Then press X or the Del key to remove the selected action tracks. Now we should be left with one track that we want to export, lets do it. As before we go to ( File>Export>glTF 2.0 ) and we keep the same settings except this time we will tick the animation section and change some things.
 
  ![](/docs/NLA_exp.png)
@@ -81,11 +83,11 @@ Then open it up, in the properties pane we can set the mesh and skeleton to the 
 
 ![](/docs/ani_Model.png)
 
-The model is now setup for animation and you can add this model to a collection and in a script play the animation using ` model.play_anim() ` api can be found: [Model API:](https://defold.com/ref/beta/model/)
+The model is now setup for animation and you can add this model to a collection. The animation can be played using ` model.play_anim() ` api can be found here: [Model API](https://defold.com/ref/beta/model/)
 
 ------
 
-I created a sample project showing how its all setup and included the blender file found in the `docs/_Blender` folder.
+I created a sample project showing how its all setup and included the blender file which can be found in the `docs/_Blender` folder.
 
 [GITHUB PROJECT](https://github.com/FlexYourBrain/Defold_Animation3D_Guide)
 
